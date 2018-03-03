@@ -13,10 +13,10 @@ namespace SFTPConsoleTest
         private static void ListFiles()
         {
             string host = @"centosnote";
-            string username = "chrisp";
-            string password = @"bristol";
+            string username = "sftpuser";
+            string password = @"sftpuser";
 
-            string remoteDirectory = "/home/chrisp";
+            string remoteDirectory = "/home/sftpuser/ftproot";
 
             using (SftpClient sftp = new SftpClient(host, username, password))
             {
@@ -36,6 +36,7 @@ namespace SFTPConsoleTest
                             Console.WriteLine("Other -> " + file.Name);
                     }
 
+                    sftp.DeleteDirectory("/home/sftpuser/ftproot/spanish/P456456");
                     sftp.Disconnect();
                 }
                 catch (Exception e)
